@@ -24,7 +24,6 @@ foodCategoryRouter.post("/", async (req: Request, res: Response) => {
   const { categoryName } = req.body;
   await foodCategoryModel.create({
     categoryName: categoryName,
-    createdAt: new Date(),
   });
   res.send({ message: "created successfully", categoryName });
 });
