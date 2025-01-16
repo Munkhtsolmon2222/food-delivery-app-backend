@@ -13,7 +13,9 @@ foodsRouter.get("/", async (req: Request, res: Response) => {
 
 foodsRouter.get("/:id", async (req: Request, res: Response) => {
   const { id } = req.params;
-  const food = await foodModel.findById(id);
+  const food = await foodModel.find({
+    category: id,
+  });
   res.json({
     message: "Hello from backend",
     data: food,
