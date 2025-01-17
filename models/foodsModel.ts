@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose, { Schema } from "mongoose";
 
 const FOOD_SCHEMA = new mongoose.Schema(
   {
@@ -6,7 +6,7 @@ const FOOD_SCHEMA = new mongoose.Schema(
     price: Number,
     image: String,
     ingredients: String,
-    category: mongoose.Types.ObjectId,
+    category: Schema.Types.ObjectId,
   },
   {
     timestamps: true,

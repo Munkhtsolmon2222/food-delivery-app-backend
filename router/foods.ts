@@ -4,10 +4,10 @@ import { foodModel } from "../models/foodsModel";
 export const foodsRouter = Router();
 
 foodsRouter.get("/", async (req: Request, res: Response) => {
-  const foodCategories = await foodModel.find();
+  const foods = await foodModel.find();
   res.json({
     message: "Hello from backend",
-    data: foodCategories,
+    data: foods,
   });
 });
 
@@ -23,7 +23,12 @@ foodsRouter.get("/:id", async (req: Request, res: Response) => {
 });
 
 foodsRouter.post("/", async (req: Request, res: Response) => {
-  const { foodName, price, image, ingredients, category } = req.body;
+  const foodName = req.body.foodName;
+  const price = req.body.foodPrice;
+  const image = req.body.foodIMG;
+  const ingredients = req.body.foodIngredients;
+  const category = req.body.paramsId;
+
   const newFood = await foodModel.create({
     foodName,
     price,
