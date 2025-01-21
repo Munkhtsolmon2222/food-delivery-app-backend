@@ -41,7 +41,11 @@ foodsRouter.post("/", async (req: Request, res: Response) => {
 
 foodsRouter.put("/:id", async (req: Request, res: Response) => {
   const { id } = req.params;
-  const { foodName, price, image, ingredients, category } = req.body;
+  const foodName = req.body.foodName;
+  const price = req.body.foodPrice;
+  const image = req.body.foodIMG;
+  const ingredients = req.body.foodIngredients;
+  const category = req.body.newCategory;
   const newFood = await foodModel.findByIdAndUpdate(id, {
     foodName,
     price,
