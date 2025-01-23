@@ -13,8 +13,8 @@ app.use(cors());
 configDotenv();
 
 const connectMongoDB = async () => {
-  const MONGODB_URI = process.env.MONOGODB_URI;
-  await mongoose.connect(MONGODB_URI);
+	const MONGODB_URI = process.env.MONOGODB_URI;
+	await mongoose.connect(MONGODB_URI);
 };
 connectMongoDB();
 
@@ -22,5 +22,5 @@ app.use("/food-category/", foodCategoryRouter);
 app.use("/food/", foodsRouter);
 
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+	console.log(`Server is running on http://localhost:${PORT}`);
 });
